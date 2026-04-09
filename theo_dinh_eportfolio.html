@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Theo Dinh — Course ePortfolio | WRIT 2201M</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1814;
+    --ink-muted: #6b6760;
+    --ink-faint: #a8a49e;
+    --bg: #f8f5f0;
+    --bg-card: #ffffff;
+    --bg-accent: #f0ece4;
+    --teal: #0f6e56;
+    --teal-light: #e1f5ee;
+    --teal-mid: #1d9e75;
+    --amber: #ba7517;
+    --amber-light: #faeeda;
+    --border: rgba(26,24,20,0.12);
+    --border-strong: rgba(26,24,20,0.22);
+    --radius: 12px;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(248,245,240,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 0.5px solid var(--border-strong);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 56px;
+  }
+  .nav-logo { font-family: var(--serif); font-size: 1.1rem; color: var(--ink); text-decoration: none; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { font-size: 13px; font-weight: 500; color: var(--ink-muted); text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--teal); }
+
+  /* ── SECTIONS ── */
+  section { scroll-margin-top: 72px; }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 6rem 2rem 5rem;
+    max-width: 860px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 260px; gap: 4rem; align-items: start;
+  }
+  .hero-text {}
+  .hero-tag {
+    display: inline-block;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--teal); background: var(--teal-light);
+    padding: 4px 12px; border-radius: 100px;
+    margin-bottom: 1.25rem;
+  }
+  .hero h1 {
+    font-family: var(--serif); font-size: 3.4rem; line-height: 1.1;
+    color: var(--ink); margin-bottom: 1.25rem;
+    font-weight: 400;
+  }
+  .hero h1 em { font-style: italic; color: var(--teal); }
+  .hero-intro { font-size: 1.05rem; color: var(--ink-muted); max-width: 480px; margin-bottom: 1.5rem; }
+  .hero-purpose {
+    background: var(--teal-light); border-left: 3px solid var(--teal-mid);
+    padding: 1rem 1.25rem; border-radius: 0 var(--radius) var(--radius) 0;
+    font-size: 0.95rem; color: #0f4a38;
+    margin-top: 1.5rem;
+  }
+  .hero-purpose strong { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.3rem; color: var(--teal); }
+
+  .hero-card {
+    background: var(--bg-card);
+    border: 0.5px solid var(--border-strong);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    position: sticky; top: 72px;
+  }
+  .avatar-ring {
+    width: 72px; height: 72px; border-radius: 50%;
+    background: var(--teal-light);
+    border: 2px solid var(--teal-mid);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif); font-size: 1.6rem; color: var(--teal);
+    margin-bottom: 1rem;
+  }
+  .hero-card h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 400; margin-bottom: 0.2rem; }
+  .hero-card .subtitle { font-size: 13px; color: var(--ink-muted); margin-bottom: 1.25rem; }
+  .meta-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .meta-list li { font-size: 13px; color: var(--ink-muted); display: flex; gap: 8px; align-items: baseline; }
+  .meta-list li span.label { font-weight: 500; color: var(--ink); min-width: 52px; }
+
+  /* ── MAIN CONTENT ── */
+  .content-wrap { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+  /* ── SECTION HEADER ── */
+  .section-header {
+    display: flex; align-items: baseline; gap: 1rem;
+    border-bottom: 0.5px solid var(--border-strong);
+    padding-bottom: 0.75rem;
+    margin-bottom: 2.5rem;
+  }
+  .section-num { font-family: var(--serif); font-size: 3rem; color: var(--bg-accent); line-height: 1; user-select: none; font-weight: 400; -webkit-text-stroke: 1px var(--border-strong); }
+  .section-title { font-family: var(--serif); font-size: 1.9rem; font-weight: 400; }
+
+  /* ── PROJECT CARD ── */
+  .project-block { margin-bottom: 5rem; }
+
+  .project-header {
+    background: var(--bg-card);
+    border: 0.5px solid var(--border-strong);
+    border-radius: var(--radius) var(--radius) 0 0;
+    padding: 1.5rem 1.75rem;
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .project-header h3 { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; margin-bottom: 0.25rem; }
+  .project-header a { color: var(--teal); font-size: 13px; text-decoration: none; border-bottom: 1px solid var(--teal-mid); }
+  .project-tag {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 100px;
+    background: var(--amber-light); color: #633806;
+    white-space: nowrap;
+  }
+
+  .project-body {
+    border: 0.5px solid var(--border-strong); border-top: none;
+    border-radius: 0 0 var(--radius) var(--radius);
+    overflow: hidden;
+  }
+
+  .subsection {
+    padding: 1.5rem 1.75rem;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .subsection:last-child { border-bottom: none; }
+  .subsection h4 {
+    font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--ink-muted); margin-bottom: 0.85rem;
+  }
+  .subsection p { font-size: 0.95rem; color: var(--ink-muted); margin-bottom: 0.75rem; }
+  .subsection p:last-child { margin-bottom: 0; }
+  .subsection strong { color: var(--ink); font-weight: 500; }
+
+  /* ── CONTRIBUTION LIST ── */
+  .contrib-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .contrib-list li {
+    display: grid; grid-template-columns: 140px 1fr;
+    gap: 12px; font-size: 0.93rem;
+    padding-bottom: 12px; border-bottom: 0.5px solid var(--border);
+  }
+  .contrib-list li:last-child { border-bottom: none; padding-bottom: 0; }
+  .contrib-label { font-weight: 500; color: var(--ink); font-size: 0.88rem; }
+  .contrib-desc { color: var(--ink-muted); line-height: 1.6; }
+
+  /* ── EXAMPLE BOX ── */
+  .example-box {
+    background: var(--bg); border: 0.5px solid var(--border-strong);
+    border-radius: 8px; padding: 1.25rem 1.5rem; margin: 1rem 0;
+  }
+  .example-box .ex-label {
+    font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--ink-faint); margin-bottom: 0.6rem;
+  }
+  .example-box .before { color: #a32d2d; font-size: 0.9rem; font-style: italic; padding: 0.5rem 0.75rem; background: #fcebeb; border-radius: 6px; margin-bottom: 0.5rem; }
+  .example-box .after { color: #0f4a38; font-size: 0.9rem; font-style: italic; padding: 0.5rem 0.75rem; background: var(--teal-light); border-radius: 6px; }
+  .example-box .arrow { font-size: 11px; color: var(--ink-faint); text-align: center; padding: 2px 0; }
+
+  /* ── INSIGHT CALLOUT ── */
+  .insight {
+    background: var(--amber-light); border-left: 3px solid var(--amber);
+    padding: 0.85rem 1.1rem; border-radius: 0 8px 8px 0;
+    font-size: 0.92rem; color: #412402; margin: 0.75rem 0;
+  }
+  .insight strong { font-weight: 500; }
+
+  /* ── FINAL REFLECTION ── */
+  .reflection-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 2rem;
+  }
+  .reflection-card {
+    background: var(--bg-card); border: 0.5px solid var(--border-strong);
+    border-radius: var(--radius); padding: 1.25rem 1.5rem;
+  }
+  .reflection-card h4 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-faint); margin-bottom: 0.6rem; font-weight: 500; }
+  .reflection-card p { font-size: 0.92rem; color: var(--ink-muted); line-height: 1.65; }
+
+  /* ── SKILLS TABLE ── */
+  .skills-section { margin-top: 2.5rem; }
+  .skills-section h4 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-muted); margin-bottom: 1rem; font-weight: 500; }
+  .skill-row {
+    display: grid; grid-template-columns: 28px 1fr 120px;
+    gap: 12px; align-items: center;
+    padding: 10px 0; border-bottom: 0.5px solid var(--border);
+    font-size: 0.92rem;
+  }
+  .skill-row:last-child { border-bottom: none; }
+  .skill-num { font-family: var(--serif); font-size: 1.1rem; color: var(--ink-faint); font-weight: 400; }
+  .skill-name { color: var(--ink); font-weight: 500; }
+  .skill-level {
+    font-size: 11px; font-weight: 500; text-align: center;
+    padding: 3px 10px; border-radius: 100px;
+  }
+  .level-1 { background: var(--teal-light); color: #0f4a38; }
+  .level-2 { background: #eaf3de; color: #3b6d11; }
+  .level-3 { background: var(--amber-light); color: #633806; }
+
+  /* ── FOOTER ── */
+  footer {
+    margin-top: 6rem;
+    border-top: 0.5px solid var(--border-strong);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    font-size: 13px;
+    color: var(--ink-faint);
+  }
+  footer span { color: var(--ink-muted); }
+
+  @media (max-width: 680px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-card { position: static; }
+    .hero h1 { font-size: 2.4rem; }
+    .reflection-grid { grid-template-columns: 1fr; }
+    .contrib-list li { grid-template-columns: 1fr; }
+    nav { padding: 0 1rem; }
+    .nav-links { gap: 1rem; }
+    .content-wrap { padding: 0 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#home">Theo Dinh</a>
+  <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#reflections">Reflections</a></li>
+  </ul>
+</nav>
+
+<!-- ══════════════ SECTION 1: HOME ══════════════ -->
+<section id="home">
+<div class="hero">
+  <div class="hero-text">
+    <div class="hero-tag">WRIT 2201M · Winter 2026</div>
+    <h1>Hi, I'm<br><em>Theo Dinh</em></h1>
+    <p class="hero-intro">A second-year Information Technology student at York University with a strong interest in sustainable technology and technical communication. I'm building toward a career in <strong>technical writing</strong> or <strong>UX content strategy</strong>.</p>
+    <p style="font-size:0.95rem; color: var(--ink-muted);">Outside academia, I tinker with electronics repair, contribute to online maker communities, and explore how product design intersects with environmental responsibility.</p>
+    <div class="hero-purpose">
+      <strong>About this ePortfolio</strong>
+      This ePortfolio documents my work and learning in WRIT 2201M — an SEO content assignment and a Fast Fix repair guide — along with reflections on my growth as a researcher, writer, and collaborator. Most significantly, this course shifted my thinking: writing serves <em>readers</em>, not just instructors.
+    </div>
+  </div>
+  <div class="hero-card">
+    <div class="avatar-ring">TD</div>
+    <h3>Theo Dinh</h3>
+    <p class="subtitle">Information Technology · Year 2</p>
+    <ul class="meta-list">
+      <li><span class="label">Course</span> WRIT 2201M</li>
+      <li><span class="label">Term</span> Winter 2026</li>
+      <li><span class="label">Focus</span> Technical writing, UX content</li>
+      <li><span class="label">Team</span> AT Writers</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<!-- ══════════════ SECTION 2: PROJECTS ══════════════ -->
+<section id="projects">
+<div class="content-wrap" style="padding-top: 3rem; padding-bottom: 2rem;">
+
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Course Projects</h2>
+  </div>
+
+  <!-- PROJECT A: SEO -->
+  <div class="project-block">
+    <div class="project-header">
+      <div>
+        <div class="project-tag">SEO Content Analysis</div>
+        <h3 style="margin-top:0.5rem;">Lenovo Legion 5-15IMH05 Repair Device Page</h3>
+        <a href="https://www.ifixit.com/Device/Lenovo_Legion_5-15IMH05" target="_blank">ifixit.com/Device/Lenovo_Legion_5-15IMH05 ↗</a>
+      </div>
+    </div>
+    <div class="project-body">
+
+      <div class="subsection">
+        <h4>Purpose &amp; Overview</h4>
+        <p>Our team (AT Writers: Viet Dinh and Ayush Simon) improved an existing iFixit device page for the Lenovo Legion 5-15IMH05 laptop. The goal was to help students repair their laptops affordably instead of buying new — reducing electronic waste and saving money.</p>
+        <p><strong>Key steps:</strong> researching the device page's social importance → compiling reliable repair resources → writing and revising a proposal draft with my teammate → drafting the device page → receiving and applying Kritik peer feedback and TA comments → uploading the final version to iFixit.</p>
+      </div>
+
+      <div class="subsection">
+        <h4>My Contributions</h4>
+        <ul class="contrib-list">
+          <li>
+            <span class="contrib-label">Proposal draft</span>
+            <span class="contrib-desc">Created the SEO Project Proposal Draft independently — giving Ayush something concrete to revise, which saved time and clarified our shared direction early.</span>
+          </li>
+          <li>
+            <span class="contrib-label">Device page drafting</span>
+            <span class="contrib-desc">Divided the page work in half, then cross-checked each other's sections against the checklist. This caught errors early and maintained consistent quality across the page.</span>
+          </li>
+          <li>
+            <span class="contrib-label">Research</span>
+            <span class="contrib-desc">Researched the societal importance of the page (reducing e-waste, helping students repair affordably) and compiled reliable links for the repair guide.</span>
+          </li>
+          <li>
+            <span class="contrib-label">Revisions</span>
+            <span class="contrib-desc">Revised the device page based on Kritik peer feedback and TA comments before uploading to iFixit.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="subsection">
+        <h4>Reflection on Learning &amp; Experience</h4>
+        <p>The most important takeaway is new insight about collaboration. I had no prior SEO knowledge before this course, but working with a partner taught me more than working alone could have. Effective teamwork requires commitment, discipline, and genuine openness to others' ideas — skills I'll carry into any future workplace.</p>
+        <div class="insight"><strong>Challenge &amp; response:</strong> Ayush and I both work Thursday through Saturday on opposite shifts. Our only overlap was Wednesdays to plan and Sundays/Mondays to finalize. I responded by dividing work clearly every Wednesday so we each knew exactly what to complete before our final review.</div>
+        <p>The most unexpected part: teamwork was genuinely fun. I didn't have connections in this major yet, and this project gave me those. An area for growth is seeking help earlier — next time, I'll ask the TA <em>before</em> submission how to make my work stand out.</p>
+      </div>
+
+      <div class="subsection">
+        <h4>Application</h4>
+        <p>I applied the same approach — dividing work clearly, setting early internal deadlines, and reviewing each other's sections — to a group project in another course, and it made the process significantly less stressful. As an IT professional, clear communication, meeting deadlines, and openness to feedback are career-defining skills I'll continue building.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PROJECT B: FAST FIX -->
+  <div class="project-block">
+    <div class="project-header">
+      <div>
+        <div class="project-tag">Fast Fix Repair Guide</div>
+        <h3 style="margin-top:0.5rem;">Daymak Max S Kickstand Replacement</h3>
+        <a href="https://www.ifixit.com/Guide/Daymak+Max+S+Kickstand+Replacement/209350" target="_blank">ifixit.com/Guide/Daymak+Max+S+Kickstand+Replacement/209350 ↗</a>
+      </div>
+    </div>
+    <div class="project-body">
+
+      <div class="subsection">
+        <h4>Purpose &amp; Overview</h4>
+        <p>Our team created a beginner-friendly repair guide for iFixit targeting non-expert e-bike owners who want to diagnose and replace a loose or broken kickstand themselves — instead of paying for a repair service. The project required hands-on mechanical work, precise step sequencing, clear photography, and plain-language instructions for a general audience.</p>
+      </div>
+
+      <div class="subsection">
+        <h4>My Contributions</h4>
+        <ul class="contrib-list">
+          <li>
+            <span class="contrib-label">Physical repair</span>
+            <span class="contrib-desc">Performed the hands-on repair documented in the guide — diagnosing the loose kickstand, removing the mounting bolt, and installing the replacement. This ensured every step I wrote matched what a reader would actually do.</span>
+          </li>
+          <li>
+            <span class="contrib-label">Photography</span>
+            <span class="contrib-desc">Photographed each step using an iPhone 16 on a tripod, framing every image to show exactly what the written instruction described — for example, the Allen key on the bolt near the rear wheel, without distracting background elements.</span>
+          </li>
+          <li>
+            <span class="contrib-label">Guide formatting</span>
+            <span class="contrib-desc">Uploaded and sequenced photos on iFixit, wrote step-by-step instructions, added a safety warning, filled in tools/parts sections, and wrote the introduction explaining the wobbly kickstand problem in relatable terms.</span>
+          </li>
+          <li>
+            <span class="contrib-label">Revisions</span>
+            <span class="contrib-desc">Kritik feedback noted a missing time estimate and tool list — I added both. I also revised vague language throughout. See the before/after example below.</span>
+          </li>
+        </ul>
+
+        <div class="example-box">
+          <div class="ex-label">Revision example — Step instruction</div>
+          <div class="before">"Remove the mounting bolt and take off the kickstand."</div>
+          <div class="arrow">↓ revised to →</div>
+          <div class="after">"Using a 5 mm Allen key, loosen the mounting bolt located just above the rear wheel on the left side of the bike frame. Once the bolt is fully removed, slide the old kickstand out of the mounting bracket. If the bolt is stiff, apply steady pressure — do not jerk the tool, as this can strip the bolt head."</div>
+        </div>
+        <p style="font-size:0.85rem; color:var(--ink-faint); margin-top:0.5rem;">This revision demonstrates: specificity of tool and location, sequenced actions, and anticipating a reader's likely mistake — hallmarks of empathetic technical writing.</p>
+      </div>
+
+      <div class="subsection">
+        <h4>Reflection on Learning &amp; Experience</h4>
+        <p><strong>Most important insight:</strong> technical writing is fundamentally an act of empathy. Writing for beginners meant actively imagining what a reader doesn't know. For example, Step 2 instructs users to flip the bike upside down — I added a practical tip about protecting the handlebars with a towel because a first-time reader wouldn't think of that.</p>
+        <div class="insight"><strong>Unexpected challenge:</strong> working in tight spaces near the rear wheel while photographing. Getting a clear shot of the Allen key on the mounting bolt — without the frame or chain distracting — took multiple attempts. I learned that lighting and angle matter as much as camera quality.</div>
+        <p>What I learned about myself: I'm better at revision than first drafts. My early instructions assumed too much bike knowledge (e.g., "align the bracket" without explaining what correct alignment looks like). Having concrete material to react to — my own photos and draft steps — made revision much easier than starting from scratch.</p>
+      </div>
+
+      <div class="subsection">
+        <h4>Application</h4>
+        <p>The discipline of specific, sequenced procedural language has carried over into other writing. I now understand that a photograph doesn't replace written instructions — it reinforces them. In future technical roles, writing usable step-by-step documentation is a core deliverable I feel prepared to produce.</p>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ══════════════ SECTION 3: FINAL REFLECTIONS ══════════════ -->
+<section id="reflections">
+<div class="content-wrap" style="padding-top: 3rem; padding-bottom: 5rem;">
+
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Final Reflections</h2>
+  </div>
+
+  <div class="reflection-grid">
+    <div class="reflection-card">
+      <h4>How my understanding changed</h4>
+      <p>Before this course, I described my writing process as "draft, check grammar, submit." That feels unrecognizable now. I've learned that writing is iterative and reader-centered — not a one-time product to hand in.</p>
+    </div>
+    <div class="reflection-card">
+      <h4>Most important things learned</h4>
+      <p>How to write procedural instructions a stranger can actually follow. That revision is not weakness but the core of professional writing. That visuals and text must reinforce each other, not duplicate each other.</p>
+    </div>
+    <div class="reflection-card">
+      <h4>Soft skills developed</h4>
+      <p>Communicating ambiguity — saying "I'm not sure this step is clear; can we test it?" rather than pushing past it. This habit has made me a more reliable teammate. I also learned to accept feedback without getting defensive.</p>
+    </div>
+    <div class="reflection-card">
+      <h4>Applying this going forward</h4>
+      <p>Job postings for technical writer roles list "explain complex topics in plain language" and "collaborative documentation workflows." I've built a foundation in both. In any future role, I will assume no prior knowledge, test my own instructions, and let templates guide structure.</p>
+    </div>
+  </div>
+
+  <div class="subsection" style="background:var(--bg-card); border:0.5px solid var(--border-strong); border-radius:var(--radius); padding:1.5rem 1.75rem; margin-bottom:2rem;">
+    <p>The biggest obstacle was learning to accept negative feedback without getting defensive. Early Kritik feedback stung, but I realized that feedback about my writing is not feedback about me. iFixit's template structure — requiring a time estimate, tool list, and safety warnings — also showed me how standards enable quality: without those constraints, my early draft was incomplete.</p>
+    <p style="margin-top:0.75rem;">Reflecting on the course overall, I performed the physical repair, photographed every step, and published the guide because doing the repair myself meant I understood the tricky parts — like the tight clearance near the rear wheel — before I had to explain them. Dividing by strengths with my partner Ayush meant we never duplicated effort.</p>
+  </div>
+
+  <div class="skills-section">
+    <h4>Skills ranking — 1 = most confident, ready to use independently</h4>
+    <div class="skill-row">
+      <span class="skill-num">1</span>
+      <span class="skill-name">Procedural / instructional writing</span>
+      <span class="skill-level level-1">Confident</span>
+    </div>
+    <div class="skill-row">
+      <span class="skill-num">2</span>
+      <span class="skill-name">SEO keyword research &amp; audit</span>
+      <span class="skill-level level-2">Solid foundation</span>
+    </div>
+    <div class="skill-row">
+      <span class="skill-num">3</span>
+      <span class="skill-name">Peer feedback &amp; Kritik review</span>
+      <span class="skill-level level-2">Good, developing</span>
+    </div>
+    <div class="skill-row">
+      <span class="skill-num">4</span>
+      <span class="skill-name">Collaborative project coordination</span>
+      <span class="skill-level level-2">Effective</span>
+    </div>
+    <div class="skill-row">
+      <span class="skill-num">5</span>
+      <span class="skill-name">Writing for online / web audiences</span>
+      <span class="skill-level level-3">Foundational</span>
+    </div>
+    <div class="skill-row">
+      <span class="skill-num">6</span>
+      <span class="skill-name">Rapid first drafting</span>
+      <span class="skill-level level-3">Active growth</span>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<footer>
+  <span>Theo Dinh · WRIT 2201M · Winter 2026 · York University</span><br>
+  <span style="font-size:11px; margin-top:4px; display:block;">Course ePortfolio — Working Draft</span>
+</footer>
+
+</body>
+</html>
